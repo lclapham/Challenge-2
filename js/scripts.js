@@ -1,6 +1,10 @@
 const listP = document.querySelector('ul');
 const btn = document.getElementById('btnSub');
 const inputVal =  document.getElementById('inputVal');
+const clrChange = document.querySelector('button');
+var i; 
+
+
 
 btn.addEventListener("click", function(e) {
    //Test to make sure there are at least 3 characters
@@ -14,4 +18,35 @@ btn.addEventListener("click", function(e) {
         listP.appendChild(li);
     }
 })
+
+clrChange.addEventListener("click", function () {
+    // for(let i = 0; i < 50; i++){
+    //     let bckColor = "rgb("+random(255)+","+random(255)+","+random(255)+")"
+    //     console.log(bckColor);
+    //     document.body.style.backgroundColor = bckColor;
+    // }
+    i = 1;
+    myLoop();
+    
+})
+
+
+function random(num){
+    return Math.floor(Math.random() *(num+1))
+}
+
+                 //  set your counter to 1
+
+function myLoop() {         //  create a loop function
+  setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+    let bckColor = "rgb("+random(255)+","+random(255)+","+random(255)+")"
+        console.log(bckColor);
+        document.body.style.backgroundColor = bckColor;  //  your code here
+    i++;                    //  increment the counter
+    if (i <= 5) {           //  if the counter < 10, call the loop function
+      myLoop();             //  ..  again which will trigger another 
+    }                       //  ..  setTimeout()
+  }, 250)
+ 
+}
 
